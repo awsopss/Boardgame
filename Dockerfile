@@ -24,7 +24,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Create the final image
-FROM adoptopenjdk/openjdk11-jre
+FROM eclipse-temurin:11-jre
 
 # Set the environment variable for the application home
 ENV APP_HOME /usr/src/app
@@ -40,4 +40,5 @@ WORKDIR $APP_HOME
 
 # Command to run the application
 CMD ["java", "-jar", "app.jar"]
+
 
