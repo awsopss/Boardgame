@@ -2,25 +2,14 @@ trigger:
   branches:
     include:
       - main
-      
 
 pr:
   branches:
     include:
       - main
-     
-
-# resources:
-# - repo: self
-#   type: git
-#   connection: 'GitHubConnection' # Ensure this is set up in Azure DevOps to connect with your GitHub repo
-
-
-# Secrets stored in Azure DevOps Library (Variable Group or Pipeline-level variables)
-# dockerRegistryServiceConnection, SONARQUBE_ENDPOINT, TRIVY_API_KEY
 
 pool:
-  name: 'Chandan' # Replace this with the name of your managed node pool
+  name: 'Chandan' # Managed node pool name
 
 stages:
 - stage: Build
@@ -38,12 +27,16 @@ stages:
         tags: 'boardgame'
         addPipelineData: false
         addBaseImageData: false
+        
     - task: SonarQubePrepare@6
       inputs:
         SonarQube: 'sonar'
         scannerMode: 'CLI'
         configMode: 'file'
-    - task: SonarQubeAnalyze@6
+
+    
+    - task: SonarQubePublish@6
       inputs:
-        jdkversion: 'JAVA_HOME_17_X64'
+        pollingTimeoutSec: '300'
+
 
