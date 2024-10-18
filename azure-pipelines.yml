@@ -40,7 +40,7 @@ stages:
         addBaseImageData: false
     - task: SonarQubePrepare@6
       inputs:
-        SonarQube: 'sonar-connections'
+        SonarQube: 'sonar'
         scannerMode: 'CLI'
         configMode: 'file'
 
