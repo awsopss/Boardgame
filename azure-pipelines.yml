@@ -34,8 +34,8 @@ stages:
         scannerMode: 'CLI'
         configMode: 'file'
 
-    - task: SonarQubeAnalyze@6
-      inputs:
-        jdkversion: 'JAVA_HOME'
+    # - task: SonarQubeAnalyze@6
+    #   inputs:
+    #     jdkversion: 'JAVA_HOME'
 
 
