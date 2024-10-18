@@ -38,4 +38,11 @@ stages:
     #   inputs:
     #     jdkversion: 'JAVA_HOME'
 
+    - task: CmdLine@2
+      inputs:
+        script: 'trivy fs --format table -o trivy-fs-report.html .'
+    - task: CmdLine@2
+      inputs:
+        script: 'trivy image --format table -o trivy-images-report.html cloudops96/chandan-cloudops:boardgame'
+
 
