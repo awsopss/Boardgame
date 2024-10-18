@@ -38,4 +38,9 @@ stages:
         tags: 'boardgame'
         addPipelineData: false
         addBaseImageData: false
+    - task: SonarQubePrepare@6
+      inputs:
+        SonarQube: 'sonar-connections'
+        scannerMode: 'CLI'
+        configMode: 'file'
 
