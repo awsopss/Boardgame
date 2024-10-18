@@ -43,4 +43,7 @@ stages:
         SonarQube: 'sonar'
         scannerMode: 'CLI'
         configMode: 'file'
+    - task: SonarQubeAnalyze@6
+      inputs:
+        jdkversion: 'JAVA_HOME_17_X64'
 
