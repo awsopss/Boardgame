@@ -34,9 +34,8 @@ stages:
         scannerMode: 'CLI'
         configMode: 'file'
 
-    
-    - task: SonarQubePublish@6
+    - task: SonarQubeAnalyze@6
       inputs:
-        pollingTimeoutSec: '300'
+        jdkversion: 'JAVA_HOME'
 
 
