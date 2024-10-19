@@ -31,13 +31,11 @@ stages:
     - task: SonarQubePrepare@6
       inputs:
         SonarQube: 'sonar'
-        scannerMode: 'CLI'
-        configMode: 'file'
-    - task: JavaToolInstaller@0
-      inputs:
-        versionSpec: '17'
-        jdkArchitectureOption: 'x64'
-        jdkSourceOption: 'PreInstalled'
+        scannerMode: 'Other'
+        extraProperties: |
+          # Additional properties that will be passed to the scanner, 
+          # Put one key=value per line, example:
+          # sonar.exclusions=.
     
     
     - task: CmdLine@2
