@@ -33,11 +33,13 @@ stages:
         SonarQube: 'sonar'
         scannerMode: 'CLI'
         configMode: 'file'
-
-    # - task: SonarQubeAnalyze@6
-    #   inputs:
-    #     jdkversion: 'JAVA_HOME'
-
+    - task: JavaToolInstaller@0
+      inputs:
+        versionSpec: '17'
+        jdkArchitectureOption: 'x64'
+        jdkSourceOption: 'PreInstalled'
+    
+    
     - task: CmdLine@2
       inputs:
         script: 'trivy fs --format table -o trivy-fs-report.html .'
