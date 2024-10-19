@@ -38,6 +38,10 @@ stages:
           # sonar.exclusions=.
           sonar.java.binaries= .
 
+    - task: SonarQubePublish@6
+      inputs:
+        pollingTimeoutSec: '300'
+
     
     
     - task: CmdLine@2
