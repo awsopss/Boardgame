@@ -31,16 +31,20 @@ stages:
     - task: SonarQubePrepare@6
       inputs:
         SonarQube: 'sonar'
-        scannerMode: 'Other'
+        scannerMode: 'CLI'
+        configMode: 'manual'
+        cliProjectKey: 'Boardgame'
+        cliProjectName: 'Boardgame'
+        cliSources: '.'
         extraProperties: |
           # Additional properties that will be passed to the scanner, 
           # Put one key=value per line, example:
           # sonar.exclusions=.
           sonar.java.binaries= .
 
-    - task: SonarQubePublish@6
+    - task: SonarQubeAnalyze@6
       inputs:
-        pollingTimeoutSec: '300'
+        jdkversion: 'JAVA_HOME_17_X64'
 
     
     
